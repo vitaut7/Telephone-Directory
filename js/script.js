@@ -35,7 +35,7 @@ function users2table (users) {
 		// console.log(user);
 		tablehtml+='<tr>';
 		tablehtml+=	'<td>'+user.cn+'</td>';
-		tablehtml+=	'<td>';
+		tablehtml+=	'<td><nobr>';
 			if (user.telephoneNumber) tablehtml+='<i class="fa fa-phone"></i>'+user.telephoneNumber;
 			if (user.otherTelephone) {
 				// console.log(typeof user.otherTelephone,user.otherTelephone)
@@ -57,7 +57,7 @@ function users2table (users) {
 			if (user.homePhone) tablehtml+='<br/>'+'<i class="fa fa-home fa-lg"></i>'+user.homePhone;
 			if (user.facsimileTelephoneNumber) tablehtml+='<br/>'+'<i class="fa fa-fax"></i>'+user.facsimileTelephoneNumber;
 
-		tablehtml+= '</td>';
+		tablehtml+= '</nobr></td>';
 		tablehtml+=	'<td>'+((user.mail)?'<a href="mailto:'+user.mail+'">'+user.mail+'</a>':'')+'</td>';
 		tablehtml+=	'<td>'+((user.department)?user.department:'')+((user.title)?('</br>'+user.title):'')+'</td>';
 		tablehtml+='</tr>';

@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
-<body>
-    <div id="tableheader" class="navbar navbar-default navbar-fixed-top navbar-inverse">
-            <div class="container">
-                <form class="navbar-form navbar-left search" role="search">
-                    <input type="text" id="query" class="form-control" placeholder="Поиск" onkeyup="if (prevquery!=this.value) {sorter.reset(); sorter.search('query'); prevquery=this.value}">
-                </form>
-                <button type="button" class="navbar-right navbar-btn btn btn-default"><i class="fa fa-print" onclick="window.print()"></i> Печать</button>
-            </div>
+<body role="document">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <form class="navbar-form navbar-left search" role="search">
+                <input type="text" id="query" class="form-control" placeholder="Поиск" onkeyup="if (prevquery!=this.value) {sorter.reset(); sorter.search('query'); prevquery=this.value}">
+            </form>
+            <button type="button" class="navbar-right navbar-btn btn btn-default"><i class="fa fa-print" onclick="window.print()"></i> Печать</button>
         </div>
-	<div id="tablewrapper" class="container">
-        <table cellpadding="0" cellspacing="0" border="0" id="table" class="table-striped table-hover">
+    </nav>
+    <div class="container" role="main">
+        <table id="table" class="table table-striped ">
             <thead>
                 <tr>
                     <th><h3>ФИО</h3></th>
@@ -35,13 +35,13 @@
 	<script src="./js/tinytable.js"></script>
     <script type="text/javascript">
 	var sorter = new TINY.table.sorter('sorter','table',{
-		headclass:'head',
-		ascclass:'asc',
-		descclass:'desc',
-		evenclass:'evenrow',
-		oddclass:'oddrow',
-		evenselclass:'evenselected',
-		oddselclass:'oddselected',
+		// headclass:'head',
+		// ascclass:'asc',
+		// descclass:'desc',
+		// evenclass:'evenrow',
+		// oddclass:'oddrow',
+		// evenselclass:'evenselected',
+		// oddselclass:'oddselected',
 		// paginate:true,
 		// size:10,
 		// colddid:'columns',
