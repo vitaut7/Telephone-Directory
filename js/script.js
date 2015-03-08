@@ -34,7 +34,7 @@ function users2table (users) {
 	tablehtml = '';
 	for (i=0; i<users.length;i++) {
 		var user = users[i];
-		console.count();
+		// console.count();
 		// console.log(user);
 		tablehtml+='<tr>';
 		tablehtml+=	'<td>'+user.cn+'</td>';
@@ -67,9 +67,8 @@ function users2table (users) {
 	}
 	// console.log(tablehtml);
 	$('#table tbody').html(tablehtml);
-	// sorter.init();
 	
-	$("#table").tablesorter();
+	$("#table").tablesorter({sortList: [[3,0], [0,0]]});
 }
 
 function sorttable (tableID, query) {
