@@ -1,12 +1,25 @@
 body {
-	padding-top: 70px;
+	padding-top: 50px;
 	/*padding-bottom: 30px;*/
 }
 .fa {
 	color: grey;
-	width: 14px;
+	width: 22px;
 }
-thead
+#table thead tr .header {
+	cursor: pointer;
+}
+#table thead tr .header .arrow {
+	background-image: url(../images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+#table thead tr .headerSortUp .arrow {
+	background-image: url(../images/asc.gif);
+}
+#table thead tr .headerSortDown .arrow {
+	background-image: url(../images/desc.gif);
+}
 @media print {
 	nav {display: none;}
 }
