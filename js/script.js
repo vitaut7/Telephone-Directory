@@ -1,4 +1,4 @@
-// require('nw.gui').Window.get().showDevTools(); //show console at start
+ require('nw.gui').Window.get().showDevTools(); //show console at start
 require('nw.gui').Window.get().maximize(); //maximize windows on start
 
 var credentials = require('./private.js'); //config include domain user and pass
@@ -21,17 +21,20 @@ ad.getUsersForGroup(groupName, function(err, users) {
     if (localusers != ldapusers) {
     	localStorage.users = JSON.stringify(users);
     	console.info('users changed');
+    	users2table(JSON.parse(localStorage.users));
     } else {console.log('users didn\'t changed')};
-    users2table(JSON.parse(localStorage.users));
+    
     // users2table(users)
   }
 });
 
-if (localStorage.users) users2table(JSON.parse(localStorage.users));
+
 function users2table (users) {
+	// console.log(1)
 	tablehtml = '';
 	for (i=0; i<users.length;i++) {
 		var user = users[i];
+		console.count();
 		// console.log(user);
 		tablehtml+='<tr>';
 		tablehtml+=	'<td>'+user.cn+'</td>';
@@ -64,7 +67,30 @@ function users2table (users) {
 	}
 	// console.log(tablehtml);
 	$('#table tbody').html(tablehtml);
-	sorter.init();
-	$('#query').focus();
+	// sorter.init();
+	
+	$("#table").tablesorter();
 }
-var prevquery='';
+
+function sorttable (tableID, query) {
+    $('#'+tableID+" > tbody > tr").each(function(index) {
+        $row = $(this);
+
+        var text_in_row = $row.text();
+
+        if (text_in_row.indexOf(query) === -1) {
+            $row.hide();
+        }
+        else {
+            $row.show();
+        }
+    });	
+}
+
+// var prevquery='';
+$(document).ready(function () {
+	$('#query').focus();
+	var offset = $('.navbar').height();
+	$("#table").stickyTableHeaders({fixedOffset: offset});
+	if (localStorage.users) users2table(JSON.parse(localStorage.users));
+});

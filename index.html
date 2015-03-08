@@ -9,18 +9,37 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
 </head>
 <body role="document">
-    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
-        <div class="container">
-            <form class="navbar-form navbar-left search" role="search">
-                <input type="text" id="query" class="form-control" placeholder="Поиск" onkeyup="if (prevquery!=this.value) {sorter.reset(); sorter.search('query'); prevquery=this.value}">
-            </form>
-            <button type="button" class="navbar-right navbar-btn btn btn-default"><i class="fa fa-print" onclick="window.print()"></i> Печать</button>
-        </div>
-    </nav>
-    <div class="container" role="main">
+	<nav class="navbar navbar-fixed-top navbar-inverse">
+		<div class="container">
+
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<span class="navbar-brand" href="#">Brand</span>
+			</div>
+
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" id="query" class="form-control" placeholder="Поиск" onkeyup="sorttable('table',this.value)">
+					</div>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><button type="button" class="btn btn-default navbar-btn" onclick="windows.print()"><i class="fa fa-print"></i> Печать</button></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+ 	<div class="container" role="main">
         <table id="table" class="table table-striped ">
             <thead>
-                <tr>
+                <tr class="active">
                     <th><h3>ФИО</h3></th>
                     <th><h3>телефон</h3></th>
                     <th><h3>email</h3></th>
@@ -30,9 +49,12 @@
             <tbody></tbody>
         </table>
     </div>
+
 	<script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-	<script src="./js/tinytable.js"></script>
+    <script src="./js/jquery.tablesorter.min.js"></script>
+    <script src="./js/jquery.stickytableheaders.min.js"></script>
+	<!-- <script src="./js/tinytable.js"></script>
     <script type="text/javascript">
 	var sorter = new TINY.table.sorter('sorter','table',{
 		// headclass:'head',
@@ -60,8 +82,7 @@
 		// columns:[{index:7, format:'%', decimals:1},{index:8, format:'$', decimals:0}],
 		init:false
 	});
-  	</script>
+  	</script> -->
 	<script src="./js/script.js"></script>
-
 </body>
 </html>

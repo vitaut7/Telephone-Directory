@@ -1,11 +1,12 @@
 body {
 	padding-top: 70px;
-	padding-bottom: 30px;
+	/*padding-bottom: 30px;*/
 }
 .fa {
 	color: grey;
 	width: 14px;
 }
+thead
 @media print {
 	nav {display: none;}
 }
